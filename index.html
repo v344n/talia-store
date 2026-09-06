@@ -4,274 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تاليا | كونكريت وديكور</title>
+    <!-- الخط العربي المعماري -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS عبر CDN لتنسيق الواجهة بسرعة وفخامة -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --bg-main: #f9f9f7;
-            --bg-surface: #ffffff;
-            --bg-surface-secondary: #f4f4f1;
-            --text-primary: #2c2d30;
-            --text-secondary: #6e6f73;
-            --text-muted: #9c9d9f;
-            --accent-terracotta: #a45a38;
-            --accent-terracotta-hover: #8c4b2d;
-            --accent-stone: #2c2d30;
-            --accent-stone-hover: #1b1c1e;
-            --border-color: #e5e5e0;
-            --border-color-light: #ecece6;
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
         body {
             font-family: 'IBM Plex Sans Arabic', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            line-height: 1.6;
-            direction: rtl;
-            text-align: right;
+            background-color: #f9f9f7;
+            color: #2c2d30;
+            -webkit-tap-highlight-color: transparent;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Header */
-        .site-header {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 70px;
-        }
-        .brand-logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .brand-mark {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-stone);
-            color: #fff;
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        /* Hero */
-        .hero-card {
-            background: linear-gradient(135deg, #1c1d1f 0%, #36373b 100%);
-            color: #fff;
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            margin: 30px 0;
-        }
-        .hero-tag {
-            background: var(--accent-terracotta);
-            color: #fff;
-            font-size: 11px;
-            padding: 4px 12px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 14px;
-        }
-        .hero-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 14px;
-        }
-        .hero-desc {
-            color: #d8d8d4;
-            font-size: 14px;
-            max-width: 600px;
-            margin-bottom: 24px;
-        }
-        .btn-white {
-            background: #fff;
-            color: var(--text-primary);
-            padding: 10px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 13px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-        .feature-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 60px;
-        }
-        .product-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background-color: #eee;
-        }
-        .product-body {
-            padding: 20px;
-        }
-        .deposit-box {
-            background: #fafaf8;
-            border: 1px dashed #d5d5cd;
-            border-radius: var(--radius-sm);
-            padding: 12px;
-            margin: 16px 0;
-            font-size: 12px;
-        }
-        .deposit-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-        .deposit-highlight {
-            font-weight: bold;
-            color: var(--accent-terracotta);
-            border-top: 1px solid #eee;
-            padding-top: 6px;
-        }
-        .btn-booking {
-            width: 100%;
-            background: var(--accent-stone);
-            color: #fff;
-            border: none;
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .btn-booking:hover {
-            background: var(--accent-stone-hover);
-        }
-        /* Footer */
-        .site-footer {
-            background: #fff;
-            border-top: 1px solid var(--border-color);
-            padding: 30px 0;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-secondary);
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand-logo-area">
-                <div class="brand-mark">ت</div>
-                <div>
-                    <h1 style="font-size: 18px; font-weight: bold;">تاليا</h1>
-                    <p style="font-size: 11px; color: var(--text-secondary);">كونكريت وديكور</p>
-                </div>
-            </div>
-            <div><span style="background: #f0f0ee; padding: 6px 14px; border-radius: 50px; font-size: 12px;">🇾🇪 صنعاء - اليمن</span></div>
-        </div>
-    </header>
+<body class="min-h-screen bg-stone-100 flex justify-center items-center sm:p-4">
 
-    <main class="container">
-        <section class="hero-card">
-            <span class="hero-tag">مجموعة تاليا الحصرية</span>
-            <h2 class="hero-title">فن الكونكريت والديكور..<br>فخامة تلهم مساحتك</h2>
-            <p class="hero-desc">نصنع قطع الديكور والأثاث المعماري يدوياً بعناية فائقة. نظام حجز ميسر: ادفع 50% عربون لبدء صب القالب، و50% المتبقية عند المعاينة والاستلام في يدك.</p>
-            <a href="#products" class="btn-white">استكشف التشكيلة ←</a>
-        </section>
+    <!-- إطار محاكاة تطبيق الجوال الفاخر -->
+    <div class="w-full max-w-md bg-[#f9f9f7] min-h-screen sm:min-h-[840px] sm:max-h-[890px] sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-stone-200">
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <span>⚖️</span>
+        <!-- شريط الرأس العلوي -->
+        <header class="bg-white/95 backdrop-blur border-b border-stone-200 sticky top-0 z-40 px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-[#2c2d30] text-white flex items-center justify-center font-bold text-base shadow-sm">
+                    ت
+                </div>
                 <div>
-                    <strong>نظام العربون الحرفي 50%</strong>
-                    <p style="font-size: 11px; color: var(--text-secondary);">ادفع النصف لبدء الصب، والباقي عند المعاينة</p>
+                    <h1 class="text-base font-bold tracking-tight text-stone-900 leading-none">تاليا</h1>
+                    <p class="text-[10px] text-stone-500 font-medium mt-0.5">كونكريت وديكور</p>
                 </div>
             </div>
-            <div class="feature-card">
-                <span>📱</span>
-                <div>
-                    <strong>المحافظ اليمنية المعتمدة</strong>
-                    <p style="font-size: 11px; color: var(--text-secondary);">جيب (Jeeb)، جوالي، بنك الكريمي / ون كاش</p>
-                </div>
+            <div class="flex items-center gap-2">
+                <span class="text-[11px] bg-stone-100 text-stone-700 px-2.5 py-1 rounded-full font-medium flex items-center gap-1 border border-stone-200">
+                    <span>🇾🇪</span> صنعاء، اليمن
+                </span>
             </div>
-            <div class="feature-card">
-                <span>🛡️</span>
-                <div>
-                    <strong>تغليف وشحن وقائي</strong>
-                    <p style="font-size: 11px; color: var(--text-secondary);">صناديق مبطنة ماصة للاهتزاز لحماية المنحوتات</p>
-                </div>
-            </div>
-        </div>
+        </header>
 
-        <!-- كارت المزهرية المنقوشة -->
-        <div class="products-grid" id="products">
-            <div class="product-card">
-                <div>
-                    <div class="product-img" style="display: flex; align-items: center; justify-content: center; color: #777; font-size: 14px;">[صورة المزهرية المنقوشة]</div>
-                    <div class="product-body">
-                        <span style="font-size: 11px; color: #9c9d9f; font-weight: bold;">مزهريات وديكورات مائدة</span>
-                        <h4 style="font-size: 17px; margin: 4px 0 8px 0;">مزهرية منقوشة</h4>
-                        <p style="font-size: 12px; color: var(--text-secondary);">مزهرية كونكريت متموجة ومنقوشة يدوياً بحبل خيش أنيق عند العنق لمسة بوهيمية فاخرة.</p>
-                        <div class="deposit-box">
-                            <div class="deposit-row"><span>السعر الكامل:</span><strong>2,000 ر.ي</strong></div>
-                            <div class="deposit-row deposit-highlight"><span>العربون (50% الآن):</span><span>1,000 ر.ي</span></div>
-                            <div class="deposit-row" style="font-size: 10px; color: #9c9d9f;"><span>المتبقي عند المعاينة:</span><span>1,000 ر.ي</span></div>
+        <!-- منطقة الشاشات التفاعلية الثلاث -->
+        <main class="flex-1 overflow-y-auto custom-scroll pb-24">
+
+            <!-- 1️⃣ الواجهة الأولى: الرئيسية والكتالوج -->
+            <section id="screen-home" class="p-4 space-y-4">
+                <div class="bg-stone-900 text-white rounded-2xl p-5 relative overflow-hidden shadow-lg">
+                    <span class="inline-block bg-[#a45a38] text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold mb-2">
+                        مجموعة تاليا الحصرية 2025
+                    </span>
+                    <h2 class="text-lg font-bold leading-snug mb-2">
+                        فن الكونكريت والديكور..<br>فخامة تلهم مساحتك
+                    </h2>
+                    <p class="text-stone-300 text-xs leading-relaxed mb-3">
+                        قطع أسمنتية ومعمارية مشغولة يدوياً بعناية. نظام ميسر: عربون 50% لبدء الصب، والباقي عند المعاينة.
+                    </p>
+                    <div class="flex items-center gap-2 text-[11px] text-stone-400">
+                        <span class="text-emerald-400">●</span> سداد فوري عبر المحافظ اليمنية
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="bg-white p-2.5 rounded-xl border border-stone-200 text-center">
+                        <span class="text-base block mb-0.5">⚖️</span>
+                        <div class="text-[10px] font-bold text-stone-800">عربون 50%</div>
+                        <div class="text-[9px] text-stone-500">والباقي بالاستلام</div>
+                    </div>
+                    <div class="bg-white p-2.5 rounded-xl border border-stone-200 text-center">
+                        <span class="text-base block mb-0.5">📱</span>
+                        <div class="text-[10px] font-bold text-stone-800">محافظ يمنية</div>
+                        <div class="text-[9px] text-stone-500">جيب، جوالي، ون كاش</div>
+                    </div>
+                    <div class="bg-white p-2.5 rounded-xl border border-stone-200 text-center">
+                        <span class="text-base block mb-0.5">🛡️</span>
+                        <div class="text-[10px] font-bold text-stone-800">شحن آمن</div>
+                        <div class="text-[9px] text-stone-500">مقاوم للصدمات</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                    <h3 class="font-bold text-sm text-stone-900">القطع المعروضة للطلب المباشر</h3>
+                    <span class="text-[10px] text-stone-500">صب يدوي حسب الطلب</span>
+                </div>
+
+                <!-- بطاقة المزهرية المنقوشة (2000 ر.ي) -->
+                <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm">
+                    <div class="relative h-48 bg-stone-100">
+                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80" alt="مزهرية منقوشة" class="w-full h-full object-cover">
+                        <span class="absolute top-2.5 right-2.5 bg-stone-900/80 backdrop-blur text-white text-[10px] px-2 py-0.5 rounded-full font-medium">★ 4.9</span>
+                        <span class="absolute top-2.5 left-2.5 bg-[#a45a38] text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold">وصل حديثاً</span>
+                    </div>
+                    <div class="p-3.5 space-y-2.5">
+                        <div>
+                            <span class="text-[10px] font-bold text-stone-400">مزهريات وديكورات مائدة</span>
+                            <h4 class="font-bold text-base text-stone-900">مزهرية منقوشة</h4>
+                            <p class="text-xs text-stone-600 leading-relaxed mt-1">
+                                مزهرية كونكريت بتشطيب متموج ومنقوش يدوياً مع حبل خيش أنيق عند العنق ولمسة بوهيمية فاخرة.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-1.5 text-[10px]">
+                            <span class="text-stone-500 font-medium">الألوان:</span>
+                            <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">وردي هادئ</span>
+                            <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">رمادي</span>
+                            <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">عاجي</span>
+                        </div>
+                        <div class="bg-[#fcfbf9] p-3 rounded-xl border border-stone-200 text-xs">
+                            <div class="flex justify-between items-center text-stone-600 mb-1">
+                                <span>السعر الإجمالي:</span>
+                                <span class="font-bold text-stone-900">2,000 ر.ي</span>
+                            </div>
+                            <div class="flex justify-between items-center text-[#a45a38] font-bold pt-1.5 border-t border-stone-200">
+                                <span>العربون المطلوب (50%):</span>
+                                <span class="text-sm">1,000 ر.ي</span>
+                            </div>
+                            <div class="flex justify-between items-center text-[10px] text-stone-400 mt-1">
+                                <span>المتبقي عند المعاينة والاستلام:</span>
+                                <span>1,000 ر.ي</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <button type="button" onclick="switchTab('studio')" class="w-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs py-2.5 rounded-xl font-semibold transition text-center">
+                                استوديو التخصيص ⚙️
+                            </button>
+                            <button type="button" onclick="goToCheckout('مزهرية منقوشة', 2000, 1000)" class="w-full bg-[#2c2d30] hover:bg-stone-800 text-white text-xs py-2.5 rounded-xl font-semibold transition text-center">
+                                حجز بعربون 50% ←
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div style="padding: 0 20px 20px 20px;">
-                    <button class="btn-booking" onclick="alert('جاري فتح نموذج سداد العربون 50% عبر محفظة جيب أو جوالي')">طلب وحجز بعربون 50% ←</button>
-                </div>
-            </div>
-        </div>
-    </main>
+            </section>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p style="font-weight: bold; margin-bottom: 4px;">تاليا للكونكريت والديكور © 2026</p>
-            <p>بوابات الدفع: محفظة جيب • محفظة جوالي • بنك الكريمي / ون كاش • الدفع عند الاستلام</p>
-        </div>
-    </footer>
+            <!-- 2️⃣ الواجهة الثانية: استوديو التخصيص -->
+            <section id="screen-studio" class="p-4 space-y-4 hidden">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-bold text-stone-900">استوديو التخصيص - تاليا</h3>
+                    <span class="text-[10px] bg-[#a45a38]/10 text-[#a45a38] px-2.5 py-1 rounded-full font-bold">محاكاة فورية</span>
+                </div>
+                <div class="bg-stone-900 rounded-2xl p-6 text-center text-white relative shadow-inner">
+                    <div id="vessel-preview" class="w-28 h-32 mx-auto rounded-3xl bg-stone-400 flex items-center justify-center text-3xl shadow-2xl transition-all duration-300">
+                        🏺
+                    </div>
+                    <p id="vessel-color-name" class="text-xs font-semibold text-stone-300 mt-3">التشطيب: رمادي طبيعي</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-stone-200 space-y-3">
+                    <h4 class="text-xs font-bold text-stone-800">اختر درجة تشطيب الكونكريت:</h4>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button type="button" onclick="setFinish('#9ca3af', 'رمادي طبيعي')" class="flex flex-col items-center gap-1.5 p-2 rounded-xl border border-stone-200 hover:border-stone-400 transition">
+                            <span class="w-6 h-6 rounded-full bg-stone-400"></span>
+                            <span class="text-[9px] font-semibold">رمادي طبيعي</span>
+                        </button>
+                        <button type="button" onclick="setFinish('#f3f0e6', 'أبيض عاجي')" class="flex flex-col items-center gap-1.5 p-2 rounded-xl border border-stone-200 hover:border-stone-400 transition">
+                            <span class="w-6 h-6 rounded-full bg-[#f3f0e6] border"></span>
+                            <span class="text-[9px] font-semibold">أبيض عاجي</span>
+                        </button>
+                        <button type="button" onclick="setFinish('#e2a89f', 'وردي هادئ')" class="flex flex-col items-center gap-1.5 p-2 rounded-xl border border-stone-200 hover:border-stone-400 transition">
+                            <span class="w-6 h-6 rounded-full bg-[#e2a89f]"></span>
+                            <span class="text-[9px] font-semibold">وردي هادئ</span>
+                        </button>
+                        <button type="button" onclick="setFinish('#374151', 'أسود فحمي')" class="flex flex-col items-center gap-1.5 p-2 rounded-xl border border-stone-200 hover:border-stone-400 transition">
+                            <span class="w-6 h-6 rounded-full bg-stone-700"></span>
+                            <span class="text-[9px] font-semibold">أسود فحمي</span>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" onclick="goToCheckout('مزهرية مخصصة', 2000, 1000)" class="w-full bg-[#a45a38] hover:bg-[#8c4b2d] text-white py-3 rounded-xl font-bold text-xs shadow-md transition">
+                    اعتماد التخصيص وسداد العربون (1,000 ر.ي) ←
+                </button>
+            </section>
+
+            <!-- 3️⃣ الواجهة الثالثة: سداد العربون 50% عبر المحافظ اليمنية -->
+            <section id="screen-checkout" class="p-4 space-y-4 hidden">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-bold text-stone-900">سداد العربون (50%)</h3>
+                    <span class="text-[10px] text-stone-500">حجز آمن</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-stone-200 space-y-2 text-xs">
+                    <div class="flex justify-between items-center pb-2 border-b border-stone-100">
+                        <span class="font-bold text-stone-800" id="checkout-item-name">مزهرية منقوشة</span>
+                        <span class="text-stone-500" id="checkout-total-price">2,000 ر.ي</span>
+                    </div>
+                    <div class="flex justify-between text-[#a45a38] font-bold text-sm">
+                        <span>العربون المستحق الآن (50%):</span>
+                        <span id="checkout-deposit-price">1,000 ر.ي</span>
+                    </div>
+                    <div class="flex justify-between text-stone-400 text-[10px]">
+                        <span>المتبقي عند المعاينة باليد:</span>
+                        <span id="checkout-remaining-price">1,000 ر.ي</span>
+                    </div>
+                </div>
+
+                <!-- خيارات المحافظ اليمنية -->
+                <div class="bg-white p-4 rounded-2xl border border-stone-200 space-y-2.5">
+                    <h4 class="text-xs font-bold text-stone-800 mb-1">اختر المحفظة اليمنية:</h4>
+                    <label class="flex items-center justify-between p-2.5 rounded-xl border border-stone-200 cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <input type="radio" name="wallet" checked class="accent-[#a45a38]">
+                            <span class="text-xs font-bold text-stone-800">محفظة جيب (Jeeb)</span>
+                        </div>
+                        <span class="text-[10px] text-[#a45a38] font-bold">فوري</span>
+                    </label>
+                    <label class="flex items-center justify-between p-2.5 rounded-xl border border-stone-200 cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <input type="radio" name="wallet" class="accent-[#a45a38]">
+                            <span class="text-xs font-bold text-stone-800">محفظة جوالي (Jawali)</span>
+                        </div>
+                        <span class="text-[10px] text-stone-500">معتمد</span>
+                    </label>
+                    <label class="flex items-center justify-between p-2.5 rounded-xl border border-stone-200 cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <input type="radio" name="wallet" class="accent-[#a45a38]">
+                            <span class="text-xs font-bold text-stone-800">بنك الكريمي / ون كاش</span>
+                        </div>
+                        <span class="text-[10px] text-stone-500">سريع</span>
+                    </label>
+                </div>
+
+                <!-- بيانات العميل والتوصيل -->
+                <form onsubmit="event.preventDefault(); document.getElementById('success-msg').classList.remove('hidden');" class="bg-white p-4 rounded-2xl border border-stone-200 space-y-3">
+                    <div>
+                        <label class="block text-[10px] text-stone-600 mb-1">الاسم الكامل</label>
+                        <input type="text" required placeholder="اسم المستلم" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] text-stone-600 mb-1">رقم الواتساب للتواصل وإرسال السند</label>
+                        <input type="tel" required placeholder="777XXXXXX" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] text-stone-600 mb-1">المدينة والحي (صنعاء / المحافظات)</label>
+                        <input type="text" required placeholder="مثال: صنعاء - حدة" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
+                    </div>
+                    <button type="submit" class="w-full bg-[#2c2d30] hover:bg-stone-800 text-white font-bold py-3 rounded-xl text-xs transition shadow-md">
+                        تأكيد وسداد العربون (1,000 ر.ي) لبدء الصب
+                    </button>
+                </form>
+
+                <div id="success-msg" class="hidden bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-center text-xs font-bold text-emerald-800">
+                    ✓ تم تسجيل طلبك بنجاح! سيتم إرسال إشعار السند وبدء صب القالب فوراً.
+                </div>
+            </section>
+        </main>
+
+        <!-- شريط التنقل السفلي الثابت (3 واجهات) -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-6 py-2.5 flex justify-between items-center z-50 shadow-lg">
+            <button type="button" onclick="switchTab('home')" id="tab-home" class="flex flex-col items-center gap-1 text-[#a45a38] font-bold transition">
+                <span class="text-base">🏛️</span>
+                <span class="text-[10px]">الرئيسية</span>
+            </button>
+            <button type="button" onclick="switchTab('studio')" id="tab-studio" class="flex flex-col items-center gap-1 text-stone-400 font-medium transition">
+                <span class="text-base">⚙️</span>
+                <span class="text-[10px]">الاستوديو</span>
+            </button>
+            <button type="button" onclick="switchTab('checkout')" id="tab-checkout" class="flex flex-col items-center gap-1 text-stone-400 font-medium transition">
+                <span class="text-base">💳</span>
+                <span class="text-[10px]">العربون والدفع</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- جافاسكريبت التحكم بالواجهات التفاعلية -->
+    <script>
+        function switchTab(tabId) {
+            document.getElementById('screen-home').classList.add('hidden');
+            document.getElementById('screen-studio').classList.add('hidden');
+            document.getElementById('screen-checkout').classList.add('hidden');
+
+            ['home', 'studio', 'checkout'].forEach(t => {
+                const b = document.getElementById('tab-' + t);
+                b.classList.remove('text-[#a45a38]', 'font-bold');
+                b.classList.add('text-stone-400', 'font-medium');
+            });
+
+            document.getElementById('screen-' + tabId).classList.remove('hidden');
+            const active = document.getElementById('tab-' + tabId);
+            active.classList.remove('text-stone-400', 'font-medium');
+            active.classList.add('text-[#a45a38]', 'font-bold');
+        }
+
+        function setFinish(color, label) {
+            document.getElementById('vessel-preview').style.backgroundColor = color;
+            document.getElementById('vessel-color-name').innerText = 'التشطيب: ' + label;
+        }
+
+        function goToCheckout(title, total, deposit) {
+            document.getElementById('checkout-item-name').innerText = title;
+            document.getElementById('checkout-total-price').innerText = total.toLocaleString() + ' ر.ي';
+            document.getElementById('checkout-deposit-price').innerText = deposit.toLocaleString() + ' ر.ي';
+            document.getElementById('checkout-remaining-price').innerText = (total - deposit).toLocaleString() + ' ر.ي';
+            switchTab('checkout');
+        }
+    </script>
 </body>
 </html>
