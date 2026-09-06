@@ -3,53 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تاليا - كونكريت وديكور</title>
+    <title>تاليا | كونكريت وديكور</title>
+    <!-- الخط العربي المعماري -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS عبر CDN لتنسيق الواجهة بسرعة وفخامة -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; margin: 0; padding: 0; direction: rtl; }
-        header { background: #fff; padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
-        .container { max-width: 600px; margin: auto; padding: 15px; }
-        .product-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; overflow: hidden; border: 1px solid #eee; position: relative; }
-        .product-card img { width: 100%; height: auto; display: block; background: #fff; }
-        .badge { position: absolute; top: 15px; right: 15px; background: #c87d55; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
-        .product-details { padding: 20px; }
-        .product-details h3 { margin-top: 0; color: #222; }
-        .product-details p { color: #666; font-size: 14px; line-height: 1.6; }
-        .price-section { background: #fdfbf7; padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid #f0e6dc; font-size: 14px; }
-        .deposit { color: #8c5230; font-weight: bold; margin-top: 5px; }
-        .action-buttons { display: flex; gap: 10px; margin-top: 15px; }
-        button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: bold; }
-        .btn-order { background: #222; color: #fff; }
-        .btn-customize { background: #eef2f5; color: #333; }
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #f9f9f7;
+            color: #2c2d30;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
-<body>
+<body class="min-h-screen bg-stone-100 flex justify-center items-center sm:p-4">
 
-    <header>
-        <h2>تاليا <span style="font-size: 14px; color: #666;">- صنعاء، اليمن</span></h2>
-    </header>
+    <!-- إطار محاكاة تطبيق الجوال الفاخر -->
+    <div class="w-full max-w-md bg-[#f9f9f7] min-h-screen sm:min-h-[840px] sm:max-h-[890px] sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-stone-200">
 
-    <div class="container">
-
-        <!-- المنتج: الفازة المفردة فقط -->
-        <div class="product-card">
-            <img src="https://i.pinimg.com/736x/69/ec/bd/69ecbd2e9c18d172e269ecbd2e9c18d172e.jpg" alt="فازة صدى المفردة">
-            <span class="badge">مميز</span>
-            <div class="product-details">
-                <h3>فازة "صدى" المعمارية المفردة</h3>
-                <p>فازة كونكريت يدوية بتصميم متموج فريد وعنق محبوك بحبل الخيش الفاخر. قطعة فنية واحدة تضفي طابعاً أنيقاً ومميزاً على زوايا منزلك.</p>
-                
-                <div class="price-section">
-                    <div>السعر الإجمالي: <span>2,500 ر.ي</span></div>
-                    <div class="deposit">العربون المطلوب (50%): <span>1,250 ر.ي</span></div>
-                    <div style="font-size: 12px; color: #888; margin-top: 3px;">المتبقي 1,250 ر.ي عند المعاينة والاستلام</div>
+        <!-- شريط الرأس العلوي -->
+        <header class="bg-white/95 backdrop-blur border-b border-stone-200 sticky top-0 z-40 px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-[#2c2d30] text-white flex items-center justify-center font-bold text-base shadow-sm">
+                    ت
                 </div>
-
-                <div class="action-buttons">
-                    <button class="btn-order" onclick="alert('جاري فتح نموذج سداد العربون 50% عبر محفظة جيب أو جوالي')">حجز بعربون 50%</button>
-                    <button class="btn-customize">استوديو التخصيص</button>
+                <div>
+                    <h1 class="text-base font-bold tracking-tight text-stone-900 leading-none">تاليا</h1>
+                    <p class="text-[10px] text-stone-500 font-medium mt-0.5">كونكريت وديكور</p>
                 </div>
             </div>
-        </div>
+            <div class="flex items-center gap-2">
+                <span class="text-[11px] bg-stone-100 text-stone-700 px-2.5 py-1 rounded-full font-medium flex items-center gap-1 border border-stone-200">
+                    <span>🇾🇪</span> صنعاء، اليمن
+                </span>
+            </div>
+        </header>
+
+        <!-- منطقة المحتوى الرئيسي -->
+        <main class="flex-1 overflow-y-auto custom-scroll pb-24">
+
+            <!-- الواجهة: الرئيسية والكتالوج -->
+            <section id="screen-home" class="p-4 space-y-4">
+                <div class="bg-stone-900 text-white rounded-2xl p-5 relative overflow-hidden shadow-lg">
+                    <span class="inline-block bg-[#a45a38] text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold mb-2">
+                        مجموعة تاليا الحصرية 2025
+                    </span>
+                    <h2 class="text-lg font-bold leading-snug mb-2">
+                        فن الكونكريت والديكور..<br>فخامة تلهم مساحتك
+                    </h2>
+                    <p class="text-stone-300 text-xs leading-relaxed mb-3">
+                        قطع أسمنتية ومعمارية مشغولة يدوياً بعناية. نظام ميسر: عربون 50% لبدء الصب، والباقي عند المعاينة.
+                    </p>
+                    <div class="flex items-center gap-2 text-[11px] text-stone-400">
+                        <span class="text-emerald-400">●</span> سداد فوري عبر المحافظ اليمنية
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="bg-white p-2.5 rounded-xl border border-stone-200 text-center">
+                        <span class="text-base block mb-0.5">⚖️</span>
+                        <div class="text-[10px] font-bold text-stone-800">عربون 50%</div>
+                        <div class="text-[9px] text-stone-500">والباقي بالاستلام</div>
+                    </div>
+                    <div class="bg-white p-2.5 rounded-xl border border-stone-200 text-center">
+                        <span class="text-base block mb-0.5">📱</span>
+                        <div class="text-[10px] font-bold text-stone-800">محافظ يمنية</div>
+                        <div class="text-[9px] text-stone-500">جيب، جوالي، ون كاش</div>
+                    </div>
+                    <div class="bg-white p-2.5 rounded-xl border border-stone-200 text-center">
+                        <span class="text-base block mb-0.5">🛡️</span>
+                        <div class="text-[10px] font-bold text-stone-800">شحن آمن</div>
+                        <div class="text-[9px] text-stone-500">مقاوم للصدمات</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                    <h3 class="font-bold text-sm text-stone-900">القطع المعروضة للطلب المباشر</h3>
+                    <span class="text-[10px] text-stone-500">صب يدوي حسب الطلب</span>
+                </div>
+
+                <!-- بطاقة الفازة المفردة الجديدة -->
+                <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm">
+                    <div class="relative h-64 bg-stone-50 flex items-center justify-center p-4">
+                        <img src="https://i.pinimg.com/736x/69/ec/bd/69ecbd2e9c18d172e269ecbd2e9c18d172e.jpg" alt="فازة صدى المفردة" class="max-h-full max-w-full object-contain">
+                        <span class="absolute top-2.5 right-2.5 bg-stone-900/80 backdrop-blur text-white text-[10px] px-2 py-0.5 rounded-full font-medium">★ 4.9</span>
+                        <span class="absolute top-2.5 left-2.5 bg-[#a45a38] text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold">وصل حديثاً</span>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div>
+                            <span class="text-[10px] font-bold text-stone-400">مزهريات وديكورات منزلية</span>
+                            <h4 class="font-bold text-base text-stone-900 mt-0.5">فازة "صدى" المعمارية المفردة</h4>
+                            <p class="text-xs text-stone-600 leading-relaxed mt-1">
+                                فازة كونكريت يدوية بتصميم متموج فريد وعنق محبوك بحبل الخيش الفاخر. قطعة فنية تضفي طابعاً أنيقاً على زوايا منزلك.
+                            </p>
+                        </div>
+
+                        <!-- الألوان المتاحة -->
+                        <div class="flex items-center gap-1.5 text-[11px] pt-1">
+                            <span class="text-stone-500 font-medium">الألوان:</span>
+                            <span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded border border-stone-200">أبيض عاجي</span>
+                            <span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded border border-stone-200">بيج دافئ</span>
+                            <span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded border border-stone-200">رمادي</span>
+                        </div>
+
+                        <!-- صندوق الأسعار والعربون -->
+                        <div class="bg-[#fdfbf7] p-3 rounded-xl border border-[#f0e6dc] space-y-1.5">
+                            <div class="flex justify-between items-center text-xs text-stone-700">
+                                <span>السعر الإجمالي:</span>
+                                <span class="font-bold text-stone-900">2,500 ر.ي</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-[#a45a38] font-bold pt-1 border-t border-[#f0e6dc]/60">
+                                <span>العربون المطلوب (50%):</span>
+                                <span>1,250 ر.ي</span>
+                            </div>
+                            <div class="text-[10px] text-stone-500 text-left">
+                                المتبقي 1,250 ر.ي عند المعاينة والاستلام
+                            </div>
+                        </div>
+
+                        <!-- الأزرار -->
+                        <div class="flex gap-2 pt-1">
+                            <button onclick="alert('جاري فتح نموذج سداد العربون 50% عبر محفظة جيب أو جوالي')" class="flex-1 bg-stone-900 hover:bg-stone-800 text-white py-3 rounded-xl font-bold text-xs shadow-sm transition">
+                                حجز بعربون 50%
+                            </button>
+                            <button onclick="alert('استوديو التخصيص: اختر اللون أو الحجم الذي يناسب ذوقك')" class="px-4 bg-stone-100 hover:bg-stone-200 text-stone-800 py-3 rounded-xl font-medium text-xs border border-stone-200 transition">
+                                استوديو التخصيص
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- شريط التنقل السفلي الثابت -->
+        <nav class="bg-white/95 backdrop-blur border-t border-stone-200 absolute bottom-0 left-0 right-0 h-16 px-6 flex items-center justify-around z-40">
+            <button class="flex flex-col items-center text-stone-900">
+                <span class="text-lg">🏠</span>
+                <span class="text-[10px] font-bold mt-0.5">الرئيسية</span>
+            </button>
+            <button onclick="alert('الانتقال إلى استوديو التخصيص')" class="flex flex-col items-center text-stone-400 hover:text-stone-900 transition">
+                <span class="text-lg">⚙️</span>
+                <span class="text-[10px] font-medium mt-0.5">التخصيص</span>
+            </button>
+            <button onclick="alert('سلة الطلبات وعربون الـ 50%')" class="flex flex-col items-center text-stone-400 hover:text-stone-900 transition">
+                <span class="text-lg">🛒</span>
+                <span class="text-[10px] font-medium mt-0.5">العربون والدفع</span>
+            </button>
+        </nav>
 
     </div>
 
