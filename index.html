@@ -199,21 +199,21 @@
                     <h4 class="text-xs font-bold text-stone-800 mb-1">اختر المحفظة اليمنية:</h4>
                     <label class="flex items-center justify-between p-2.5 rounded-xl border border-stone-200 cursor-pointer">
                         <div class="flex items-center gap-2.5">
-                            <input type="radio" name="wallet" checked class="accent-[#a45a38]">
+                            <input type="radio" name="wallet" value="جيب Jeeb" checked class="accent-[#a45a38]">
                             <span class="text-xs font-bold text-stone-800">محفظة جيب (Jeeb)</span>
                         </div>
                         <span class="text-[10px] text-[#a45a38] font-bold">فوري</span>
                     </label>
                     <label class="flex items-center justify-between p-2.5 rounded-xl border border-stone-200 cursor-pointer">
                         <div class="flex items-center gap-2.5">
-                            <input type="radio" name="wallet" class="accent-[#a45a38]">
+                            <input type="radio" name="wallet" value="جوالي Jawali" class="accent-[#a45a38]">
                             <span class="text-xs font-bold text-stone-800">محفظة جوالي (Jawali)</span>
                         </div>
                         <span class="text-[10px] text-stone-500">معتمد</span>
                     </label>
                     <label class="flex items-center justify-between p-2.5 rounded-xl border border-stone-200 cursor-pointer">
                         <div class="flex items-center gap-2.5">
-                            <input type="radio" name="wallet" class="accent-[#a45a38]">
+                            <input type="radio" name="wallet" value="بنك الكريمي / ون كاش" class="accent-[#a45a38]">
                             <span class="text-xs font-bold text-stone-800">بنك الكريمي / ون كاش</span>
                         </div>
                         <span class="text-[10px] text-stone-500">سريع</span>
@@ -221,18 +221,18 @@
                 </div>
 
                 <!-- بيانات العميل والتوصيل -->
-                <form onsubmit="event.preventDefault(); document.getElementById('success-msg').classList.remove('hidden');" class="bg-white p-4 rounded-2xl border border-stone-200 space-y-3">
+                <form id="order-form" onsubmit="submitOrder(event)" class="bg-white p-4 rounded-2xl border border-stone-200 space-y-3">
                     <div>
                         <label class="block text-[10px] text-stone-600 mb-1">الاسم الكامل</label>
-                        <input type="text" required placeholder="اسم المستلم" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
+                        <input type="text" id="cust-name" required placeholder="اسم المستلم" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
                     </div>
                     <div>
                         <label class="block text-[10px] text-stone-600 mb-1">رقم الواتساب للتواصل وإرسال السند</label>
-                        <input type="tel" required placeholder="777XXXXXX" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
+                        <input type="tel" id="cust-phone" required placeholder="777XXXXXX" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
                     </div>
                     <div>
                         <label class="block text-[10px] text-stone-600 mb-1">المدينة والحي (صنعاء / المحافظات)</label>
-                        <input type="text" required placeholder="مثال: صنعاء - حدة" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
+                        <input type="text" id="cust-address" required placeholder="مثال: صنعاء - حدة" class="w-full text-xs p-2 rounded-xl border border-stone-200 focus:outline-none focus:border-stone-400">
                     </div>
                     <button type="submit" class="w-full bg-[#2c2d30] hover:bg-stone-800 text-white font-bold py-3 rounded-xl text-xs transition shadow-md">
                         تأكيد وسداد العربون (1,000 ر.ي) لبدء الصب
@@ -240,7 +240,7 @@
                 </form>
 
                 <div id="success-msg" class="hidden bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-center text-xs font-bold text-emerald-800">
-                    ✓ تم تسجيل طلبك بنجاح! سيتم إرسال إشعار السند وبدء صب القالب فوراً.
+                    ✓ تم تجهيز طلبك وتحويلك للواتساب لإرسال تفاصيل الحجز وسند السداد!
                 </div>
             </section>
         </main>
@@ -263,8 +263,11 @@
 
     </div>
 
-    <!-- جافاسكريبت التحكم بالواجهات التفاعلية -->
+    <!-- جافاسكريبت التحكم بالواجهات وتوجيه البيانات للواتساب -->
     <script>
+        // ضع رقم واتساب الخاص بك هنا (متبوعاً برقم الدولة، مثلاً 967770000000 بدون علامة +)
+        const MY_WHATSAPP_NUMBER = "967776647449"; 
+
         function switchTab(tabId) {
             document.getElementById('screen-home').classList.add('hidden');
             document.getElementById('screen-studio').classList.add('hidden');
@@ -293,6 +296,37 @@
             document.getElementById('checkout-deposit-price').innerText = deposit.toLocaleString() + ' ر.ي';
             document.getElementById('checkout-remaining-price').innerText = (total - deposit).toLocaleString() + ' ر.ي';
             switchTab('checkout');
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+
+            // جلب البيانات المدخلة
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
+            const itemName = document.getElementById('checkout-item-name').innerText;
+            const depositPrice = document.getElementById('checkout-deposit-price').innerText;
+            
+            // جلب المحفظة المختارة
+            const selectedWallet = document.querySelector('input[name="wallet"]:checked').value;
+
+            // إظهار رسالة النجاح
+            document.getElementById('success-msg').classList.remove('hidden');
+
+            // تجهيز نص رسالة الواتساب
+            const message = `مرحباً، أرغب بتأكيد طلب حجز جديد:%0A` +
+                            `- المنتج: ${itemName}%0A` +
+                            `- العربون المدفوع: ${depositPrice}%0A` +
+                            `- وسيلة الدفع: ${selectedWallet}%0A` +
+                            `- اسم العميل: ${name}%0A` +
+                            `- رقم الواتساب: ${phone}%0A` +
+                            `- العنوان: ${address}`;
+
+            // فتح رابط الواتساب مباشرة ليصلك الطلب
+            setTimeout(() => {
+                window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${message}`, '_blank');
+            }, 1000);
         }
     </script>
 </body>
